@@ -6,6 +6,10 @@ interface IButtonProps {
   className?: string;
   type: "button" | "submit" | "reset" | undefined;
   variant: string;
+  loading?: boolean;
+  loaderProps?: {
+    type: string;
+  };
 }
 
 const PrimaryButton = ({
@@ -14,6 +18,8 @@ const PrimaryButton = ({
   className,
   type,
   variant,
+  loading,
+  loaderProps,
 }: IButtonProps) => {
   return (
     <Button
@@ -21,6 +27,8 @@ const PrimaryButton = ({
       variant={variant}
       onClick={onClick}
       className={`!px-10 !rounded-md !tracking-wide ${className}`}
+      loading={loading}
+      loaderProps={loaderProps}
     >
       {text}
     </Button>

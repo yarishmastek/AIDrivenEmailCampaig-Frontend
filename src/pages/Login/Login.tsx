@@ -1,10 +1,14 @@
-import { useRef, useState } from "react";
-import { Input } from "@mantine/core";
+import { useState } from "react";
+import { Input, PasswordInput } from "@mantine/core";
 import PrimaryButton from "../../components/PrimaryButton";
 import { showToast } from "../../utils/toast";
 import { useNavigate } from "react-router";
 
-const Login = () => {
+const Login = ({
+  setIsLoggedIn,
+}: {
+  setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const [formData, setFormData] = useState({ username: "", password: "" });
   const navigate = useNavigate();
 
@@ -16,6 +20,8 @@ const Login = () => {
     e.preventDefault();
     if (formData.username === "admin" && formData.password === "admin") {
       showToast("Login Successful", "success");
+      localStorage.setItem("isLoggedIn", "true");
+      setIsLoggedIn(true);
       navigate("/dashboard");
     } else {
       showToast("Invalid Credentials", "error");
@@ -46,7 +52,7 @@ const Login = () => {
             />
           </Input.Wrapper>
           <Input.Wrapper label="Password">
-            <Input
+            <PasswordInput
               onChange={handleInputChange}
               name="password"
               placeholder="Enter Password"

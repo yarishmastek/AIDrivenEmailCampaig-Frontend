@@ -15,7 +15,7 @@ const Dashboard = () => {
         Email Marketing Platform
       </div>
       <div>
-        <div className="grid grid-cols-2 text-center shadow-md">
+        <div className="grid mx-2 gap-y-2 min-[400px]:grid-cols-2 text-center shadow-md">
           <button
             onClick={() => setActiveTab(TABS_NAMES.EMAIL_CAMPAIGN)}
             className={`cursor-pointer font-poppins-medium transition-all duration-150 text-lg ${
