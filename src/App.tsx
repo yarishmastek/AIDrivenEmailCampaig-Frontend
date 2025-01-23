@@ -18,7 +18,7 @@ const App = () => {
         <Routes>
           {isLoggedIn ? (
             <>
-              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/dashboard" element={<Dashboard setIsLoggedIn={setIsLoggedIn}   />} />
               <Route path="*" element={<Navigate to="/dashboard" />} />
             </>
           ) : (

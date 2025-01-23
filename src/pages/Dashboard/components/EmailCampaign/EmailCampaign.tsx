@@ -69,7 +69,14 @@ const EmailCampaign = () => {
   return (
     <div>
       {isEmailCustomized ? (
-        <div className="space-y-4 max-w-[600px] m-10">
+        <div className="space-y-4 max-w-[600px] m-5 mx-10">
+          <PrimaryButton
+            text="Home"
+            type="button"
+            variant="outline"
+            className="!px-2"
+            onClick={() => setIsEmailCustomized(false)}
+          />
           <Select
             label="Recipient"
             onChange={(value) => setRecipient(value)}
