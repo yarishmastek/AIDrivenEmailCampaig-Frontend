@@ -4,7 +4,7 @@ import PrimaryButton from "../../../../components/PrimaryButton";
 import { showToast } from "../../../../utils/toast";
 import axios from "axios";
 
-const dropdownOptions = ["yarishkumar.1983@gmail.com"];
+const dropdownOptions = ["yarishkumar.1983@gmail.com", "Internal Marketing Team", "Segment 1", "Segment 2", "Segment 3"];
 
 const EmailCampaign = () => {
   const [recipient, setRecipient] = useState<string | null>(null);
@@ -43,6 +43,10 @@ const EmailCampaign = () => {
   };
 
   const sendEmail = async () => {
+    if (!recipient || !subject || !generatedEmailData) {
+      showToast("Please complete all fields before submitting.", "error");
+      return;
+    }
     const payload = {
       recipient,
       subject,
